@@ -68,4 +68,11 @@ p {
   height: auto;
   margin-right: 16px;
 }
+.tags {
+  display: flex;
+  justify-content: flex-end;
+}
+.tags p {
+  margin: 0;
+}
 
