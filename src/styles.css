@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }
+* {
+  box-sizing: border-box;
+}
+p {
+  margin: 0;
+}
+.header {
+  width: 100%;
+  background-color: #2a282c;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
+  display: -ms-flexbox;
+  display: flex;
+  padding: 24px;
+  position: relative;
+  z-index: 10;
+  justify-content: flex-start;
+  margin-bottom: 40px ;
+}
+.logo {
+  width: 250px;
+}
+.logo img {
+  width: 100%;
+}
+.footer {
+  width: 100%;
+  background-color: #2a282c;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
+  display: -ms-flexbox;
+  display: flex;
+  padding: 24px;
+  position: relative;
+  z-index: 10;
+  justify-content: flex-start;
+}
+.footer .copyright {
+  color: #ffffff;
+  font-size: 12px;
+}
+.layout {
+  height: 100%;
+  margin-left: 6%;
+  margin-right: 40px;
+}
+.headline {
+  margin-bottom: 40px;
+}
+.layout .headline h1 {
+  font-weight: 400;
+  font-size: 32px;
+  color: #212121;
+  font-family: Poppins;
+}
+.mat-expansion-panel-header,
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description{
+  font-family: Poppins;
+}
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  align-items: center;
+}
+.mat-expansion-panel-header .material-icons {
+  color: #4285F4;
+  width: 24px;
+  height: auto;
+  margin-right: 16px;
+}
+

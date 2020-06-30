@@ -1,0 +1,18 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="material-icons">api</span>
+        {{jsonData.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{jsonData.description}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>TODO VERSIONS!!!!!</p>
+    <div class="tags">
+      <p>Tags: <span *ngFor="let item of jsonData.tags">{{item.name}}, </span></p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
