@@ -75,6 +75,7 @@ app-endpoints {
 .tags {
   display: flex;
   justify-content: flex-end;
+  margin-top: 24px;
 }
 .tags p {
   margin: 0;
@@ -85,6 +86,30 @@ code pre {
   padding: 24px;
   border-radius: 4px;
   font-family: monospace;
+}
+.mat-expansion-panel:not([class*=mat-elevation-z]).versions {
+  box-shadow: none;
+  border-bottom: 1px solid #ddd;
+}
+.mat-expansion-panel:not([class*=mat-elevation-z]).operations {
+  box-shadow: none;
+}
+.title {
+  font-weight: 900;
+  color: #4285f4;
+}
+.mat-typography h2 {
+  font-weight: 200;
+  font-size: 20px;
+}
+.mat-expansion-indicator::after,
+.versions__color{
+  color: #4285f4
+}
+.versions__color,
+.operations__text {
+  font-weight: 700;
+  margin-right: 8px;
 }
 
 

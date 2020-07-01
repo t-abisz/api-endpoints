@@ -4,7 +4,7 @@
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span class="material-icons">api</span>
-        {{app.name}}
+        {{app.name}} ({{app.group}})
       </mat-panel-title>
       <mat-panel-description>
         {{app.description}}
@@ -12,14 +12,13 @@
     </mat-expansion-panel-header>
 
     <!--versions-->
-      <h2>Versions of the {{app.name}}</h2>
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false"
                            *ngFor="let version of app.versions"
                             class="versions">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{version.version}}
+            <span class="versions__color">version: </span> {{version.version}}
           </mat-panel-title>
         </mat-expansion-panel-header>
 
@@ -27,7 +26,7 @@
           <mat-expansion-panel (opened)="panelOpenState = true"
                                (closed)="panelOpenState = false"
                                *ngFor="let operation of version.operations"
-                               class="versions">
+                               class="operations">
             <mat-expansion-panel-header>
               <mat-panel-title>
                <span class="title">{{operation.method}}</span> <span class="path">{{operation.path}}</span>
@@ -36,16 +35,22 @@
 
             <mat-expansion-panel class="request" *ngFor="let requestType of operation.request">
               <mat-expansion-panel-header>
-                <mat-panel-title class="name">Request type: {{requestType.name}}</mat-panel-title>
-                <mat-panel-description>Request content: {{requestType.contentType}}</mat-panel-description>
+                <mat-panel-title class="name"><span class="operations__text">Request type:</span> {{requestType.name}}</mat-panel-title>
+                <mat-panel-description><span class="operations__text">Request content:</span> {{requestType.contentType}}</mat-panel-description>
               </mat-expansion-panel-header>
               <code><pre>{{requestType.definition }}</pre></code>
             </mat-expansion-panel>
 
             <mat-expansion-panel class="response" *ngFor="let response of operation.response">
               <mat-expansion-panel-header>
-                <mat-panel-title class="name">Response type: {{response.name}}</mat-panel-title>
-                <mat-panel-description>Response content: {{response.contentType}}, Response description: {{response.description}}</mat-panel-description>
+                <mat-panel-title class="name"><span class="operations__text">Response type:</span> {{response.name}}</mat-panel-title>
+                <mat-panel-description>
+                  <span class="operations__text">Response content: </span>
+                  {{response.contentType}},
+                  <span *ngIf="response.description">
+                    <span class="operations__text" style="margin-left: 16px">Response description:</span>
+                    {{response.description}}
+                  </span></mat-panel-description>
               </mat-expansion-panel-header>
               <code><pre>{{response.definition}}</pre></code>
             </mat-expansion-panel>
