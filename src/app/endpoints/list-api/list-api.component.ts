@@ -14,5 +14,4 @@ export class ListApiComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

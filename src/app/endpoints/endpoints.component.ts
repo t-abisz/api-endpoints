@@ -11,5 +11,4 @@ export class EndpointsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

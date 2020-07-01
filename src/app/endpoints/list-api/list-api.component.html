@@ -12,14 +12,47 @@
     </mat-expansion-panel-header>
 
     <!--versions-->
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false" *ngFor="let version of app.versions">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-         Versions {{version.version}}
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-    </mat-expansion-panel>
+      <h2>Versions of the {{app.name}}</h2>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           *ngFor="let version of app.versions"
+                            class="versions">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{version.version}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+          <!--Operations-->
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false"
+                               *ngFor="let operation of version.operations"
+                               class="versions">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+               <span class="title">{{operation.method}}</span> <span class="path">{{operation.path}}</span>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-expansion-panel class="request" *ngFor="let requestType of operation.request">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="name">{{requestType.name}}</mat-panel-title>
+                <mat-panel-description>{{requestType.contentType}}</mat-panel-description>
+              </mat-expansion-panel-header>
+              <code><pre>{{requestType.definition }}</pre></code>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel class="response" *ngFor="let response of operation.response">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="name">{{response.name}}</mat-panel-title>
+                <mat-panel-description>{{response.contentType}}</mat-panel-description>
+              </mat-expansion-panel-header>
+              <code><pre>{{response.definition}}</pre></code>
+            </mat-expansion-panel>
+          </mat-expansion-panel>
+          <!--/Operations-->
+
+      </mat-expansion-panel>
     <!--/verions-->
     <div class="tags">
       <p>Tags: <span *ngFor="let tag of app.tags">{{tag.name}}, </span></p>

@@ -5,6 +5,11 @@ body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }
 }
 p {
   margin: 0;
+  font-family: Poppins;
+}
+app-endpoints {
+  display: flex;
+  flex-direction: column;
 }
 .header {
   width: 100%;
@@ -28,12 +33,10 @@ p {
   width: 100%;
   background-color: #2a282c;
   box-shadow: 0 2px 4px rgba(0,0,0,.5);
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   padding: 24px;
   position: relative;
   z-index: 10;
-  justify-content: flex-start;
 }
 .footer .copyright {
   color: #ffffff;
@@ -43,6 +46,7 @@ p {
   height: 100%;
   margin-left: 6%;
   margin-right: 40px;
+  min-height: 100vh;
 }
 .headline {
   margin-bottom: 40px;
@@ -75,4 +79,12 @@ p {
 .tags p {
   margin: 0;
 }
+code pre {
+  background-color: #212121;
+  color: #4285f4;
+  padding: 24px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
 
