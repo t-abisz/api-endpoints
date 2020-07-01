@@ -1,18 +1,28 @@
 <mat-accordion>
   <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
+                       (closed)="panelOpenState = false" *ngFor="let app of jsonData">
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span class="material-icons">api</span>
-        {{jsonData.name}}
+        {{app.name}}
       </mat-panel-title>
       <mat-panel-description>
-        {{jsonData.description}}
+        {{app.description}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>TODO VERSIONS!!!!!</p>
+
+    <!--versions-->
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false" *ngFor="let version of app.versions">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+         Versions {{version.version}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <!--/verions-->
     <div class="tags">
-      <p>Tags: <span *ngFor="let item of jsonData.tags">{{item.name}}, </span></p>
+      <p>Tags: <span *ngFor="let tag of app.tags">{{tag.name}}, </span></p>
     </div>
   </mat-expansion-panel>
 </mat-accordion>
