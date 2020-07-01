@@ -36,16 +36,16 @@
 
             <mat-expansion-panel class="request" *ngFor="let requestType of operation.request">
               <mat-expansion-panel-header>
-                <mat-panel-title class="name">{{requestType.name}}</mat-panel-title>
-                <mat-panel-description>{{requestType.contentType}}</mat-panel-description>
+                <mat-panel-title class="name">Request type: {{requestType.name}}</mat-panel-title>
+                <mat-panel-description>Request content: {{requestType.contentType}}</mat-panel-description>
               </mat-expansion-panel-header>
               <code><pre>{{requestType.definition }}</pre></code>
             </mat-expansion-panel>
 
             <mat-expansion-panel class="response" *ngFor="let response of operation.response">
               <mat-expansion-panel-header>
-                <mat-panel-title class="name">{{response.name}}</mat-panel-title>
-                <mat-panel-description>{{response.contentType}}</mat-panel-description>
+                <mat-panel-title class="name">Response type: {{response.name}}</mat-panel-title>
+                <mat-panel-description>Response content: {{response.contentType}}, Response description: {{response.description}}</mat-panel-description>
               </mat-expansion-panel-header>
               <code><pre>{{response.definition}}</pre></code>
             </mat-expansion-panel>
