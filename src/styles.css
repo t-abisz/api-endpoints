@@ -111,5 +111,10 @@ code pre {
   font-weight: 700;
   margin-right: 8px;
 }
-
+.green {
+  color: #34A853;
+}
+.yellow {
+  color: #FBBC05;
+}
 
