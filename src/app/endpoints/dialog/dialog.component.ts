@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {VersionDiff} from '../../model/version-diff';
+import {VersionDiffService} from '../../services/version-diff.service';
 
 @Component({
   selector: 'app-dialog',
@@ -6,10 +8,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
-
-  constructor() { }
+  public diff: VersionDiff = {
+    changes: {
+      newEndpoints: [
+        {
+          externalOperationId: '',
+          pathUrl: '',
+          method: '',
+          summary: ''
+        }
+      ],
+      missingEndpoints: [
+        {
+          externalOperationId: '',
+          pathUrl: '',
+          method: '',
+          summary: ''
+        }
+      ],
+      changedOperations: [
+        {
+          externalOperationId: '',
+          pathUrl: '',
+          method: '',
+          summary: ''
+        }
+      ],
+      deprecatedEndpoints: [
+        {
+          externalOperationId: '',
+          pathUrl: '',
+          method: '',
+          summary: ''
+        }
+      ],
+      diff: null,
+      diffBackwardCompatible: null
+    }
+  };
+  constructor(public diffVersion: VersionDiffService ) { }
 
   ngOnInit(): void {
+    this.diffVersion.getVersionDiffObs().subscribe((diff) => {
+      this.diff = diff;
+    });
   }
 
 }

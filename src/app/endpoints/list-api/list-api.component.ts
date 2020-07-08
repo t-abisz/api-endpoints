@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import tmp from '../../../assets/jsonData/tmp.json';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogComponent} from '../dialog/dialog.component';
+import {VersionDiffService} from '../../services/version-diff.service';
 
 @Component({
   selector: 'app-list-api',
@@ -12,11 +13,14 @@ import {DialogComponent} from '../dialog/dialog.component';
 export class ListApiComponent implements OnInit {
   panelOpenState = false;
   jsonData: any = tmp;
-  constructor(public dialog: MatDialog ) { }
+  cipa: any = null;
+  constructor(public dialog: MatDialog, public diffVersion: VersionDiffService) { }
 
   ngOnInit(): void {
   }
-
+  getDiff() {
+    this.diffVersion.getJsonDiff();
+  }
   openDialog() {
     this.dialog.open(DialogComponent);
   }

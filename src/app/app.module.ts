@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -27,7 +28,8 @@ import { DialogComponent } from './endpoints/dialog/dialog.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
