@@ -2,7 +2,7 @@
   "changes": {
     "newEndpoints": [
       {
-        "externalOperationId" : "124313",
+        "externalOperationId" : "1",
         "pathUrl": "/reservations",
         "method": "POST",
         "summary": "creates new Reservation"

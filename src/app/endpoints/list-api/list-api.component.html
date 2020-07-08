@@ -21,10 +21,8 @@
             <span class="versions__color">version: </span> {{version.version}}
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <mat-panel-description>
-          <button mat-button (click)="openDialog()">differences</button>
-        </mat-panel-description>
           <!--Operations-->
+        <button mat-button class="dialog__button" (click)="openDialog()">check differences</button>
           <mat-expansion-panel (opened)="panelOpenState = true"
                                (closed)="panelOpenState = false"
                                *ngFor="let operation of version.operations"

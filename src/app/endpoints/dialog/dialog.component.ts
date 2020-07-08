@@ -44,7 +44,6 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
     this.diffVersion.getVersionDiffObs().subscribe((diff) => {
       this.diff = diff;
-      console.log(this.diff);
     });
   }
   // todo unsubscribe on destroy

@@ -18,7 +18,6 @@ export class ListApiComponent implements OnInit {
   ngOnInit(): void {
   }
   getDiff(name, version) {
-    console.log(name);
     this.diffVersion.getJsonDiff(name, version);
   }
   openDialog() {
