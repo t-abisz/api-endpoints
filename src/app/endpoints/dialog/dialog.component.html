@@ -1,8 +1,32 @@
-<div class="diff">
-  <div class="diff__adding">
- {{this.diff.changes.changedOperations[0].externalOperationId}}
+<h2 mat-dialog-title>Changes in this version</h2>
+<mat-dialog-content>
+  <div class="diff">
+    <h3>What we add:</h3>
+    <div class="diff__item diff__item--adding" *ngFor="let item of this.diff.changes.newEndpoints">
+      <p>path: <span>{{item.pathUrl}}</span></p>
+      <p>method: <span>{{item.method}}</span></p>
+      <p>summary: <span>{{item.summary}}</span></p>
+    </div>
+    <h3>What we take:</h3>
+    <div class="diff__item diff__item--missing" *ngFor="let item of this.diff.changes.missingEndpoints">
+      <p>path: <span>{{item.pathUrl}}</span></p>
+      <p>method: <span>{{item.method}}</span></p>
+      <p>summary: <span>{{item.summary}}</span></p>
+    </div>
+    <h3>What we change:</h3>
+    <div class="diff__item diff__item--changed" *ngFor="let item of this.diff.changes.changedOperations">
+      <p>path: <span>{{item.pathUrl}}</span></p>
+      <p>method: <span>{{item.method}}</span></p>
+      <p>summary: <span>{{item.summary}}</span></p>
+    </div>
+    <h3>What we deprecated:</h3>
+    <div class="diff__item diff__item--deprecated" *ngFor="let item of this.diff.changes.deprecatedEndpoints">
+      <p>path: <span>{{item.pathUrl}}</span></p>
+      <p>method: <span>{{item.method}}</span></p>
+      <p>summary: <span>{{item.summary}}</span></p>
+    </div>
   </div>
-  <div class="diff__adding">
-
-  </div>
-</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
