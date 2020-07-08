@@ -53,5 +53,6 @@ export class DialogComponent implements OnInit {
       this.diff = diff;
     });
   }
+  // todo unsubscribe on destroy
 
 }

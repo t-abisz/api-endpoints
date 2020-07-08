@@ -51,8 +51,8 @@ export class VersionDiffService {
     get getVersionDiff() {
       return this.versionDiff;
     }
-    getJsonDiff() {
-      return this.http.get<{ versionDiff: VersionDiff }>('../assets/jsonData/diff.json').subscribe( (data) => {
+    getJsonDiff(name, version) {
+      return this.http.get<{ versionDiff: VersionDiff }>('../assets/jsonData/' + name + '/' + version + '.json').subscribe( (data) => {
         this.versionDiff = data;
         this.versionDiffObs.next(this.versionDiff);
         console.log(data)

@@ -1,0 +1,38 @@
+{
+  "changes": {
+    "newEndpoints": [
+      {
+        "externalOperationId" : "124313",
+        "pathUrl": "/reservations",
+        "method": "POST",
+        "summary": "creates new Reservation"
+      }
+    ],
+    "missingEndpoints": [
+      {
+        "externalOperationId" : "124313",
+        "pathUrl": "/reservations/usuniety",
+        "method": "POST",
+        "summary": "creates new Reservation"
+      }
+    ],
+    "changedOperations": [
+      {
+        "externalOperationId" : "124313",
+        "pathUrl": "/reservations/zmienony",
+        "method": "POST",
+        "summary": "creates new Reservation"
+      }
+    ],
+    "deprecatedEndpoints": [
+      {
+        "externalOperationId" : "124313",
+        "pathUrl": "/reservations/deprecated",
+        "method": "POST",
+        "summary": "creates new Reservation"
+      }
+    ],
+    "diff": true,
+    "diffBackwardCompatible": false
+  }
+}
