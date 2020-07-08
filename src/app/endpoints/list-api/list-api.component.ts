@@ -13,12 +13,12 @@ import {VersionDiffService} from '../../services/version-diff.service';
 export class ListApiComponent implements OnInit {
   panelOpenState = false;
   jsonData: any = tmp;
-  cipa: any = null;
   constructor(public dialog: MatDialog, public diffVersion: VersionDiffService) { }
 
   ngOnInit(): void {
   }
   getDiff(name, version) {
+    console.log(name);
     this.diffVersion.getJsonDiff(name, version);
   }
   openDialog() {

@@ -14,11 +14,22 @@
         "pathUrl": "/reservations/usuniety",
         "method": "POST",
         "summary": "creates new Reservation"
+      },
+      {
+        "externalOperationId" : "sd",
+        "pathUrl": "/reservations/usuniety",
+        "method": "POST",
+        "summary": "c new Reservation"
+      },{
+        "externalOperationId" : "fdf",
+        "pathUrl": "/reservations/sds",
+        "method": "c",
+        "summary": "creates new sc"
       }
     ],
     "changedOperations": [
       {
-        "externalOperationId" : "124313",
+        "externalOperationId" : "1",
         "pathUrl": "/reservations/zmienony",
         "method": "POST",
         "summary": "creates new Reservation"

@@ -15,7 +15,7 @@
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false"
                            *ngFor="let version of app.versions"
-                            class="versions" (click)="getDiff(app, version)">
+                            class="versions" (click)="getDiff(app.name, version.version)">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <span class="versions__color">version: </span> {{version.version}}

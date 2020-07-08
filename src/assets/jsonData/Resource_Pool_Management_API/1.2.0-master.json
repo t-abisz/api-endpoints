@@ -18,7 +18,7 @@
     ],
     "changedOperations": [
       {
-        "externalOperationId" : "124313",
+        "externalOperationId" : "3",
         "pathUrl": "/reservations/zmienony",
         "method": "POST",
         "summary": "creates new Reservation"

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { VersionDiff } from '../model/version-diff';
+import {Endpoint} from '../model/endpoint';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 
@@ -7,44 +8,7 @@ import {Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class VersionDiffService {
-  versionDiff: any = {
-    changes: {
-      newEndpoints: [
-        {
-          externalOperationId: '',
-          pathUrl: '',
-          method: '',
-          summary: ''
-        }
-      ],
-      missingEndpoints: [
-        {
-          externalOperationId: '',
-          pathUrl: '',
-          method: '',
-          summary: ''
-        }
-      ],
-      changedOperations: [
-        {
-          externalOperationId: '',
-          pathUrl: '',
-          method: '',
-          summary: ''
-        }
-      ],
-      deprecatedEndpoints: [
-        {
-          externalOperationId: '',
-          pathUrl: '',
-          method: '',
-          summary: ''
-        }
-      ],
-      diff: null,
-      diffBackwardCompatible: null
-    }
-  };
+  versionDiff: any;
   private versionDiffObs = new Subject<VersionDiff>();
 
   constructor(public http: HttpClient) { }
@@ -52,11 +16,9 @@ export class VersionDiffService {
       return this.versionDiff;
     }
     getJsonDiff(name, version) {
-      return this.http.get<{ versionDiff: VersionDiff }>('../assets/jsonData/' + name + '/' + version + '.json').subscribe( (data) => {
+      return this.http.get<{ versionDiff: VersionDiff }>('../assets/jsonData/' + name.toString() + '/' + version.toString() + '.json').subscribe( (data) => {
         this.versionDiff = data;
         this.versionDiffObs.next(this.versionDiff);
-        console.log(data)
-        console.log(this.versionDiff)
       });
     }
     getVersionDiffObs() {
