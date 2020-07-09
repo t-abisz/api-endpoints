@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {VersionDiff} from '../../model/version-diff';
-import {Endpoint} from '../../model/endpoint';
 import {VersionDiffService} from '../../services/version-diff.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css']
 })
-export class DialogComponent implements OnInit {
+export class DialogComponent implements OnInit, OnDestroy {
   public diff: VersionDiff = {
     changes: {
       newEndpoints: [{
@@ -40,12 +40,14 @@ export class DialogComponent implements OnInit {
     }
   };
   constructor(public diffVersion: VersionDiffService ) { }
-
+  subscription: Subscription;
   ngOnInit(): void {
-    this.diffVersion.getVersionDiffObs().subscribe((diff) => {
+   this.subscription = this.diffVersion.getVersionDiffObs().subscribe((diff) => {
       this.diff = diff;
     });
   }
-  // todo unsubscribe on destroy
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
 }
