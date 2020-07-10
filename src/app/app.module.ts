@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +30,8 @@ import { DialogComponent } from './endpoints/dialog/dialog.component';
     BrowserAnimationsModule,
     MatExpansionModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
