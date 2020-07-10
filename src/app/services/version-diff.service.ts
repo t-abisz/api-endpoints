@@ -16,8 +16,9 @@ export class VersionDiffService {
       return this.versionDiff;
     }
     getJsonDiff(name, version) {
-      return this.http.get<{ versionDiff: VersionDiff }>('../assets/jsonData/' + name.toString() + '/' + version.toString() + '.json').subscribe( (data) => {
-        this.versionDiff = data;
+      return this.http.get<{ versionDiff: VersionDiff }>('http://localhost:8080/api/v1/publish/HAL/'+name+'/'+version)
+        .subscribe( (data) => {
+        this.versionDiff = data[0];
         this.versionDiffObs.next(this.versionDiff);
       });
     }

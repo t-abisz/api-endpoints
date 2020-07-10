@@ -2,25 +2,25 @@
 <mat-dialog-content>
   <div class="diff">
     <h3>What we add:</h3>
-    <div class="diff__item diff__item--adding" *ngFor="let item of this.diff.changes.newEndpoints">
+    <div class="diff__item diff__item--adding" *ngFor="let item of this.diff.newEndpoints">
       <p>path: <span>{{item.pathUrl}}</span></p>
       <p>method: <span>{{item.method}}</span></p>
       <p>summary: <span>{{item.summary}}</span></p>
     </div>
     <h3>What we take:</h3>
-    <div class="diff__item diff__item--missing" *ngFor="let item of this.diff.changes.missingEndpoints">
+    <div class="diff__item diff__item--missing" *ngFor="let item of this.diff.missingEndpoints">
       <p>path: <span>{{item.pathUrl}}</span></p>
       <p>method: <span>{{item.method}}</span></p>
       <p>summary: <span>{{item.summary}}</span></p>
     </div>
     <h3>What we change:</h3>
-    <div class="diff__item diff__item--changed" *ngFor="let item of this.diff.changes.changedOperations">
+    <div class="diff__item diff__item--changed" *ngFor="let item of this.diff.changedOperations">
       <p>path: <span>{{item.pathUrl}}</span></p>
       <p>method: <span>{{item.method}}</span></p>
       <p>summary: <span>{{item.summary}}</span></p>
     </div>
     <h3>What we deprecated:</h3>
-    <div class="diff__item diff__item--deprecated" *ngFor="let item of this.diff.changes.deprecatedEndpoints">
+    <div class="diff__item diff__item--deprecated" *ngFor="let item of this.diff.deprecatedEndpoints">
       <p>path: <span>{{item.pathUrl}}</span></p>
       <p>method: <span>{{item.method}}</span></p>
       <p>summary: <span>{{item.summary}}</span></p>

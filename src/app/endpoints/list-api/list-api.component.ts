@@ -17,8 +17,8 @@ export class ListApiComponent implements OnInit {
   constructor(public dialog: MatDialog, public diffVersion: VersionDiffService, public http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<{ json: MainJson }>('../assets/jsonData/tmp.json').subscribe( (data) => {
-      this.jsonData = data;
+    this.http.get<{ json: MainJson }>('http://localhost:8080/api/v1/data').subscribe( (data) => {
+      this.jsonData = data['data'];
     });
   }
   getDiff(name, version) {
