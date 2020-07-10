@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// @ts-ignore
 import {MatDialog} from '@angular/material/dialog';
 import {DialogComponent} from '../dialog/dialog.component';
 import {VersionDiffService} from '../../services/version-diff.service';
@@ -17,7 +16,7 @@ export class ListApiComponent implements OnInit {
   constructor(public dialog: MatDialog, public diffVersion: VersionDiffService, public http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<{ json: MainJson }>('../assets/jsonData/tmp.json').subscribe( (data) => {
+    this.http.get<{ json: MainJson }>(this.diffVersion.url + 'tmp.json').subscribe( (data) => {
       this.jsonData = data;
     });
   }
