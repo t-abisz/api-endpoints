@@ -34,6 +34,9 @@
                      [ngClass]="operation.method == 'GET' ? 'green' : operation.method == 'PATCH' ? 'yellow' : null">{{operation.method}}</span>
                 <span class="path">{{operation.path}}</span>
               </mat-panel-title>
+              <mat-panel-title>
+               <span class="title">{{operation.externalOperationId}}</span>
+              </mat-panel-title>
             </mat-expansion-panel-header>
 
             <mat-expansion-panel class="request" *ngFor="let requestType of operation.request">
