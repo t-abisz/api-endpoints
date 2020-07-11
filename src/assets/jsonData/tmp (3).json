@@ -1,0 +1,91 @@
+{
+  "data": [
+    {
+      "path": "/resourcePools/{id}",
+      "method": "GET",
+      "uid": null,
+      "externalOperationId": "Resource-Pool-Management-API-HAL-1.0.0-GET-/resourcePools/{id}",
+      "referenceOperationVersion": "1.0.0",
+      "implementations": [
+        {
+          "systemModule": "rest-resource-pools-service",
+          "systemName": "rest-resource-pools-service",
+          "deploymentStatusOfOperationDTO": {
+            "0.0.0.27-rest-resource-pools-service-release": {
+              "operation": {
+                "path": "/resourcePools/{id}",
+                "method": "GET",
+                "uid": null,
+                "requestHeaders": null,
+                "responseHeaders": null,
+                "request": [],
+                "response": [
+                  {
+                    "name": "default",
+                    "description": "default response",
+                    "contentType": "application/json",
+                    "definition": "{\n  \"type\" : \"object\",\n  \"properties\" : {\n    \"id\" : {\n      \"type\" : \"string\"\n    },\n    \"type\" : {\n      \"type\" : \"string\",\n      \"enum\" : [ \"FIX\", \"FIX_RANGE\", \"SIM\", \"eSIM\", \"MSISDN\", \"mobileMSISDN\", \"VIRTUAL_MSISDN\", \"APN_NAME\", \"APN_IP\", \"PUBLIC_IP\", \"MOBILE_DEVICE\", \"SHORT_NUMBER\" ]\n    },\n    \"href\" : {\n      \"type\" : \"string\"\n    },\n    \"poolType\" : {\n      \"type\" : \"string\",\n      \"enum\" : [ \"Customer\", \"Stock\", \"Channel\", \"Reserve\" ]\n    },\n    \"lifecycleSubstate\" : {\n      \"type\" : \"string\",\n      \"enum\" : [ \"Pending\", \"Accepted\", \"Canceled\", \"Rejected\", \"Expired\" ]\n    },\n    \"relatedParty\" : {\n      \"type\" : \"object\",\n      \"properties\" : {\n        \"id\" : {\n          \"type\" : \"string\"\n        },\n        \"role\" : {\n          \"type\" : \"string\"\n        },\n        \"name\" : {\n          \"type\" : \"string\"\n        }\n      }\n    },\n    \"channel\" : {\n      \"type\" : \"object\",\n      \"properties\" : {\n        \"id\" : {\n          \"type\" : \"string\"\n        }\n      }\n    },\n    \"capacities\" : {\n      \"type\" : \"array\",\n      \"items\" : {\n        \"type\" : \"object\",\n        \"properties\" : {\n          \"id\" : {\n            \"type\" : \"string\"\n          },\n          \"applicableTimePeriod\" : {\n            \"type\" : \"object\",\n            \"properties\" : {\n              \"validFor\" : {\n                \"type\" : \"object\",\n                \"properties\" : {\n                  \"startDateTime\" : {\n                    \"type\" : \"integer\",\n                    \"format\" : \"int64\"\n                  },\n                  \"endDateTime\" : {\n                    \"type\" : \"integer\",\n                    \"format\" : \"int64\"\n                  }\n                }\n              }\n            }\n          },\n          \"capacityDemand\" : {\n            \"type\" : \"object\",\n            \"properties\" : {\n              \"capacityAmount\" : {\n                \"type\" : \"object\",\n                \"properties\" : {\n                  \"amount\" : {\n                    \"type\" : \"integer\",\n                    \"format\" : \"int32\"\n                  },\n                  \"units\" : {\n                    \"type\" : \"string\"\n                  }\n                }\n              },\n              \"applicableTimePeriod\" : {\n                \"type\" : \"object\",\n                \"properties\" : {\n                  \"validFor\" : {\n                    \"type\" : \"object\",\n                    \"properties\" : {\n                      \"startDateTime\" : {\n                        \"type\" : \"integer\",\n                        \"format\" : \"int64\"\n                      },\n                      \"endDateTime\" : {\n                        \"type\" : \"integer\",\n                        \"format\" : \"int64\"\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          },\n          \"capacityAmount\" : {\n            \"type\" : \"object\",\n            \"properties\" : {\n              \"amount\" : {\n                \"type\" : \"integer\",\n                \"format\" : \"int32\"\n              },\n              \"units\" : {\n                \"type\" : \"string\"\n              }\n            }\n          },\n          \"capacityRefs\" : {\n            \"type\" : \"array\",\n            \"items\" : {\n              \"type\" : \"object\",\n              \"properties\" : {\n                \"id\" : {\n                  \"type\" : \"string\"\n                },\n                \"type\" : {\n                  \"type\" : \"string\"\n                }\n              }\n            }\n          },\n          \"capacitySpecificationRefs\" : {\n            \"type\" : \"object\",\n            \"properties\" : {\n              \"id\" : {\n                \"type\" : \"string\"\n              }\n            }\n          },\n          \"resources\" : {\n            \"type\" : \"array\",\n            \"items\" : {\n              \"type\" : \"object\",\n              \"properties\" : {\n                \"id\" : {\n                  \"type\" : \"string\"\n                },\n                \"lifecycleSubstate\" : {\n                  \"type\" : \"string\",\n                  \"enum\" : [ \"Ordered\", \"Designed\", \"Installing\", \"Available\", \"Demand Reservation\", \"Pre-reserved\", \"Reserved\", \"Assigned\", \"Port Out\", \"Porting Out\", \"Inactive\", \"Locked\", \"Grace Period\", \"Unusable\", \"Syncing\" ]\n                },\n                \"state\" : {\n                  \"type\" : \"string\",\n                  \"enum\" : [ \"available\", \"reserved\", \"assigned\", \"unavailable\" ]\n                },\n                \"type\" : {\n                  \"type\" : \"string\",\n                  \"enum\" : [ \"FIX\", \"FIX_RANGE\", \"SIM\", \"eSIM\", \"MSISDN\", \"mobileMSISDN\", \"VIRTUAL_MSISDN\", \"APN_NAME\", \"APN_IP\", \"PUBLIC_IP\", \"MOBILE_DEVICE\", \"SHORT_NUMBER\" ]\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"notes\" : {\n      \"type\" : \"array\",\n      \"items\" : {\n        \"type\" : \"object\",\n        \"properties\" : {\n          \"id\" : {\n            \"type\" : \"string\"\n          },\n          \"date\" : {\n            \"type\" : \"integer\",\n            \"format\" : \"int64\"\n          },\n          \"author\" : {\n            \"type\" : \"string\"\n          },\n          \"text\" : {\n            \"type\" : \"string\"\n          }\n        }\n      }\n    },\n    \"createdBy\" : {\n      \"type\" : \"string\"\n    },\n    \"auditLog\" : {\n      \"type\" : \"object\",\n      \"properties\" : {\n        \"version\" : {\n          \"type\" : \"integer\",\n          \"format\" : \"int32\"\n        },\n        \"validSinceDateTime\" : {\n          \"type\" : \"integer\",\n          \"format\" : \"int64\"\n        },\n        \"effectiveModifiedBy\" : {\n          \"type\" : \"string\"\n        },\n        \"validToDateTime\" : {\n          \"type\" : \"integer\",\n          \"format\" : \"int64\"\n        }\n      }\n    }\n  }\n}"
+                  }
+                ],
+                "referenceOperationId": "Resource-Pool-Management-API-HAL-1.0.0-GET-/resourcePools/{id}",
+                "params": [
+                  {
+                    "name": "id",
+                    "required": true,
+                    "definition": "{\n  \"type\" : \"string\"\n}",
+                    "type": "PATH"
+                  }
+                ],
+                "description": null,
+                "summary": null,
+                "externalOperationId": null
+              },
+              "deployedOnEnvironments": [
+                "DEV",
+                "SIT",
+                "PREP",
+                "PROD"
+              ]
+            },
+            "0.0.0.28-rest-resource-pools-service-release": {
+              "operation": {
+                "path": "/resourcePools/{id}",
+                "method": "GET",
+                "uid": null,
+                "requestHeaders": null,
+                "responseHeaders": null,
+                "request": [],
+                "response": [
+                  {
+                    "name": "default",
+                    "description": "default response",
+                    "contentType": "application/json",
+                    "definition": "{\n  \"type\" : \"object\",\n  \"properties\" : {\n    \"id\" : {\n      \"type\" : \"string\"\n    },\n    \"type\" : {\n      \"type\" : \"string\",\n      \"enum\" : [ \"FIX\", \"FIX_RANGE\", \"SIM\", \"eSIM\", \"MSISDN\", \"mobileMSISDN\", \"VIRTUAL_MSISDN\", \"APN_NAME\", \"APN_IP\", \"PUBLIC_IP\", \"MOBILE_DEVICE\", \"SHORT_NUMBER\" ]\n    },\n    \"href\" : {\n      \"type\" : \"string\"\n    },\n    \"poolType\" : {\n      \"type\" : \"string\",\n      \"enum\" : [ \"Customer\", \"Stock\", \"Channel\", \"Reserve\" ]\n    },\n    \"lifecycleSubstate\" : {\n      \"type\" : \"string\",\n      \"enum\" : [ \"Pending\", \"Accepted\", \"Canceled\", \"Rejected\", \"Expired\" ]\n    },\n    \"relatedParty\" : {\n      \"type\" : \"object\",\n      \"properties\" : {\n        \"id\" : {\n          \"type\" : \"string\"\n        },\n        \"role\" : {\n          \"type\" : \"string\"\n        },\n        \"name\" : {\n          \"type\" : \"string\"\n        }\n      }\n    },\n    \"channel\" : {\n      \"type\" : \"object\",\n      \"properties\" : {\n        \"id\" : {\n          \"type\" : \"string\"\n        }\n      }\n    },\n    \"capacities\" : {\n      \"type\" : \"array\",\n      \"items\" : {\n        \"type\" : \"object\",\n        \"properties\" : {\n          \"id\" : {\n            \"type\" : \"string\"\n          },\n          \"applicableTimePeriod\" : {\n            \"type\" : \"object\",\n            \"properties\" : {\n              \"validFor\" : {\n                \"type\" : \"object\",\n                \"properties\" : {\n                  \"startDateTime\" : {\n                    \"type\" : \"integer\",\n                    \"format\" : \"int64\"\n                  },\n                  \"endDateTime\" : {\n                    \"type\" : \"integer\",\n                    \"format\" : \"int64\"\n                  }\n                }\n              }\n            }\n          },\n          \"capacityDemand\" : {\n            \"type\" : \"object\",\n            \"properties\" : {\n              \"capacityAmount\" : {\n                \"type\" : \"object\",\n                \"properties\" : {\n                  \"amount\" : {\n                    \"type\" : \"integer\",\n                    \"format\" : \"int32\"\n                  },\n                  \"units\" : {\n                    \"type\" : \"string\"\n                  }\n                }\n              },\n              \"applicableTimePeriod\" : {\n                \"type\" : \"object\",\n                \"properties\" : {\n                  \"validFor\" : {\n                    \"type\" : \"object\",\n                    \"properties\" : {\n                      \"startDateTime\" : {\n                        \"type\" : \"integer\",\n                        \"format\" : \"int64\"\n                      },\n                      \"endDateTime\" : {\n                        \"type\" : \"integer\",\n                        \"format\" : \"int64\"\n                      }\n                    }\n                  }\n                }\n              }\n            }\n          },\n          \"capacityAmount\" : {\n            \"type\" : \"object\",\n            \"properties\" : {\n              \"amount\" : {\n                \"type\" : \"integer\",\n                \"format\" : \"int32\"\n              },\n              \"units\" : {\n                \"type\" : \"string\"\n              }\n            }\n          },\n          \"capacityRefs\" : {\n            \"type\" : \"array\",\n            \"items\" : {\n              \"type\" : \"object\",\n              \"properties\" : {\n                \"id\" : {\n                  \"type\" : \"string\"\n                },\n                \"type\" : {\n                  \"type\" : \"string\"\n                }\n              }\n            }\n          },\n          \"capacitySpecificationRefs\" : {\n            \"type\" : \"object\",\n            \"properties\" : {\n              \"id\" : {\n                \"type\" : \"string\"\n              }\n            }\n          },\n          \"resources\" : {\n            \"type\" : \"array\",\n            \"items\" : {\n              \"type\" : \"object\",\n              \"properties\" : {\n                \"id\" : {\n                  \"type\" : \"string\"\n                },\n                \"lifecycleSubstate\" : {\n                  \"type\" : \"string\",\n                  \"enum\" : [ \"Ordered\", \"Designed\", \"Installing\", \"Available\", \"Demand Reservation\", \"Pre-reserved\", \"Reserved\", \"Assigned\", \"Port Out\", \"Porting Out\", \"Inactive\", \"Locked\", \"Grace Period\", \"Unusable\", \"Syncing\" ]\n                },\n                \"state\" : {\n                  \"type\" : \"string\",\n                  \"enum\" : [ \"available\", \"reserved\", \"assigned\", \"unavailable\" ]\n                },\n                \"type\" : {\n                  \"type\" : \"string\",\n                  \"enum\" : [ \"FIX\", \"FIX_RANGE\", \"SIM\", \"eSIM\", \"MSISDN\", \"mobileMSISDN\", \"VIRTUAL_MSISDN\", \"APN_NAME\", \"APN_IP\", \"PUBLIC_IP\", \"MOBILE_DEVICE\", \"SHORT_NUMBER\" ]\n                }\n              }\n            }\n          }\n        }\n      }\n    },\n    \"notes\" : {\n      \"type\" : \"array\",\n      \"items\" : {\n        \"type\" : \"object\",\n        \"properties\" : {\n          \"id\" : {\n            \"type\" : \"string\"\n          },\n          \"date\" : {\n            \"type\" : \"integer\",\n            \"format\" : \"int64\"\n          },\n          \"author\" : {\n            \"type\" : \"string\"\n          },\n          \"text\" : {\n            \"type\" : \"string\"\n          }\n        }\n      }\n    },\n    \"createdBy\" : {\n      \"type\" : \"string\"\n    },\n    \"auditLog\" : {\n      \"type\" : \"object\",\n      \"properties\" : {\n        \"version\" : {\n          \"type\" : \"integer\",\n          \"format\" : \"int32\"\n        },\n        \"validSinceDateTime\" : {\n          \"type\" : \"integer\",\n          \"format\" : \"int64\"\n        },\n        \"effectiveModifiedBy\" : {\n          \"type\" : \"string\"\n        },\n        \"validToDateTime\" : {\n          \"type\" : \"integer\",\n          \"format\" : \"int64\"\n        }\n      }\n    }\n  }\n}"
+                  }
+                ],
+                "referenceOperationId": "Resource-Pool-Management-API-HAL-1.0.0-GET-/resourcePools/{id}",
+                "params": [
+                  {
+                    "name": "id",
+                    "required": true,
+                    "definition": "{\n  \"type\" : \"string\"\n}",
+                    "type": "PATH"
+                  }
+                ],
+                "description": null,
+                "summary": null,
+                "externalOperationId": null
+              },
+              "deployedOnEnvironments": [
+                "DEV",
+                "SIT",
+                "PREP",
+                "PROD"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

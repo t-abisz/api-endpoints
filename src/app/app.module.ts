@@ -14,6 +14,7 @@ import { EndpointsComponent } from './endpoints/endpoints.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListApiComponent } from './endpoints/list-api/list-api.component';
 import { DialogComponent } from './endpoints/dialog/dialog.component';
+import {VersionDiffService} from  './services/version-diff.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { DialogComponent } from './endpoints/dialog/dialog.component';
     HttpClientModule,
     MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [VersionDiffService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

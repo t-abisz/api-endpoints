@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// @ts-ignore
 import {MatDialog} from '@angular/material/dialog';
 import {DialogComponent} from '../dialog/dialog.component';
 import {VersionDiffService} from '../../services/version-diff.service';
