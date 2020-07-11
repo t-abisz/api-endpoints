@@ -7,6 +7,24 @@
       "parentProjectName": null,
       "revisionCreatedFrom": null,
       "lastPushedRevision": null
+    },
+    {
+      "branchPath": "project1",
+      "code": "project1",
+      "name": "project1",
+      "parentProjectName": null,
+      "revisionCreatedFrom": null,
+      "lastPushedRevision": null
+    },
+    {
+      "branchPath": "project2",
+      "code": "project2",
+      "name": "project2",
+      "parentProjectName": null,
+      "revisionCreatedFrom": null,
+      "lastPushedRevision": null
     }
   ]
 }
+
+Response code: 200; Time: 493ms; Content length: 424 bytes
