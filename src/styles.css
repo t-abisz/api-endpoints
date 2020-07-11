@@ -203,4 +203,7 @@ dialog
 .mat-progress-spinner circle, .mat-spinner circle {
   stroke: #212121;
 }
-
+.spinner {
+  display: flex;
+  justify-content: center;
+}

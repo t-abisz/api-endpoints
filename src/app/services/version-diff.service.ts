@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { VersionDiff } from '../model/version-diff';
-import {Endpoint} from '../model/endpoint';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 
@@ -8,13 +7,14 @@ import {Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class VersionDiffService {
-  versionDiff: any;
+  private versionDiff: any;
   private versionDiffObs = new Subject<VersionDiff>();
+  private urlToApi = '../assets/jsonData/';
 
   constructor(public http: HttpClient) { }
-    get getVersionDiff() {
-      return this.versionDiff;
-    }
+  get url() {
+    return this.urlToApi;
+  }
     getJsonDiff(name, version) {
       return this.http.get<{ versionDiff: VersionDiff }>('http://localhost:8080/api/v1/publish/HAL/'+name+'/'+version)
         .subscribe( (data) => {

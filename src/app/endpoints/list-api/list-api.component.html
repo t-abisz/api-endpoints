@@ -1,4 +1,6 @@
-<mat-spinner *ngIf="this.jsonData == null"></mat-spinner>
+<div class="spinner">
+  <mat-spinner *ngIf="this.jsonData == null" value = 50></mat-spinner>
+</div>
 <mat-accordion *ngIf="jsonData != null">
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false" *ngFor="let app of jsonData">
