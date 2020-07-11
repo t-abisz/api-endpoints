@@ -9,7 +9,8 @@ export interface MainJson {
     uid: string,
     version: string,
     operations: Operations[],
-    project: string
+    project: string,
+    publicationStatus: string
   }>;
   tags: Array<{
     uid: string,
