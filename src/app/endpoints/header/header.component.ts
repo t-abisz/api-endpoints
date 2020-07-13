@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
       }
     ]
   };
-
+  public objectSend;
   isData = false;
   open = false;
   subscription: Subscription;
@@ -54,7 +54,10 @@ export class HeaderComponent implements OnInit {
   openMenu() {
     this.open = !this.open;
   }
-  changeView(projectCode) {
-    this.mainService.httpPostMenu(projectCode);
+  changeView(itemCode) {
+    this.objectSend = {
+      projectCode: itemCode
+    };
+    this.mainService.httpPostMenu(this.objectSend);
   }
 }

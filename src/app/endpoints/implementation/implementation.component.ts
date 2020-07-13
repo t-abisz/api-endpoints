@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ImplementationService} from '../../services/implementation.service';
 import {Implementation} from '../../model/implementation';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-implementation',
@@ -27,10 +28,10 @@ export class ImplementationComponent implements OnInit {
     ]
 };
   public apiKeys;
-  constructor(private implementation: ImplementationService) { }
+  constructor(private implementation: ImplementationService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    this.implementation.getimplementation();
+    this.implementation.getimplementation(this.data.appUid);
     this.implementation.getimplementationObs().subscribe(data => {
       this.impl = data;
       console.log(this.impl.data[0].implementations[0].deploymentStatusOfOperationDTO)

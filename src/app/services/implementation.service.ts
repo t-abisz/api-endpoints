@@ -17,11 +17,12 @@ export class ImplementationService {
     return this.urlToApi;
   }
 
-  getimplementation() {
-    return this.http.get<{ implementation: Implementation }>(this.urlToApi + 'impl' + '.json')
+  getimplementation(uid) {
+    return this.http.get<{ implementation: Implementation }>('http://localhost:8080/api/v1/implementation/' + uid)
       .subscribe( (data) => {
         this.implementation = data;
         this.implementationObs.next(this.implementation);
+        console.log(this.implementation)
       });
   }
   getimplementationObs() {

@@ -28,7 +28,9 @@ export class MainService {
     return this.menuObs.asObservable();
   }
   httpPostMenu(projectCode) {
-    this.http.post('http://localhost:8080/api/v1/project/select', projectCode).subscribe((answ) => {
+    this.http.post('http://localhost:8080/api/v1/project', projectCode).subscribe((answ) => {
+      this.listApi = answ;
+      this.listApiObs.next(this.listApi);
       console.log(answ);
     });
   }

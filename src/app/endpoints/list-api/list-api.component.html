@@ -4,7 +4,7 @@
 <mat-accordion *ngIf="jsonData != null">
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false" *ngFor="let app of jsonData.data">
-    <button mat-button class="dialog__button" (click)="openImplementation()">Implementation</button>
+    <button mat-button class="dialog__button" (click)="openImplementation(app.uid)">Implementation</button>
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span class="material-icons">api</span>
