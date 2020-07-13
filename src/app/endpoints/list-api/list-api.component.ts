@@ -27,17 +27,18 @@ export class ListApiComponent implements OnInit {
   getDiff(name, version) {
     this.diffVersion.getJsonDiff(name, version);
   }
-  openDialog() {
-    this.dialog.open(DialogComponent);
+  openDialog(name, version) {
+    this.dialog.open(DialogComponent, {
+      data: { appName: name, appVersion: version },
+    });
   }
   openImplementation(uid) {
-    // this.implementation.getimplementation();
     this.dialog.open(ImplementationComponent, {
       data: { appUid: uid },
     });
   }
-  publish(xsx) {
-    this.mainService.httpPostPublish(xsx);
+  publish(igroup, iapi, iversion) {
+    this.mainService.httpPostPublish(igroup, iapi, iversion);
   }
 
 }

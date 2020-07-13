@@ -1,7 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {VersionDiff} from '../../model/version-diff';
 import {VersionDiffService} from '../../services/version-diff.service';
 import {Subscription} from 'rxjs';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog',
@@ -37,10 +38,11 @@ export class DialogComponent implements OnInit, OnDestroy {
       diff: null,
       diffBackwardCompatible: null
   };
-  constructor(public diffVersion: VersionDiffService ) { }
+  constructor(public diffVersion: VersionDiffService,  @Inject(MAT_DIALOG_DATA) public data: any ) { }
   subscription: Subscription;
   ngOnInit(): void {
-   this.subscription = this.diffVersion.getVersionDiffObs().subscribe((diff) => {
+    this.diffVersion.getJsonDiff(this.data.appName, this.data.appVersion);
+    this.subscription = this.diffVersion.getVersionDiffObs().subscribe((diff) => {
       this.diff = diff;
     });
   }

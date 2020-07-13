@@ -46,8 +46,8 @@ export class MainService {
   httpGetListObs() {
     return this.listApiObs.asObservable();
   }
-  httpPostPublish(xsx) {
-    this.http.post('http://localhost:8080/api/v1/publish/HAL/Resource_Pool_Management/1.0.0-master', xsx ).subscribe((answ) => {
+  httpPostPublish(group, api, version) {
+    this.http.post('http://localhost:8080/api/v1/publish/' + group + '/' + api + '/' + version, {}).subscribe((answ) => {
       console.log(answ);
     });
   }
