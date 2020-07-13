@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MainService} from '../services/main.service';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EndpointsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public mainService: MainService) { }
 
   ngOnInit(): void {
   }

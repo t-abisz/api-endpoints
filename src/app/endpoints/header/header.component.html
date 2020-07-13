@@ -1,3 +1,8 @@
-<div class="header">
+<div class="header" >
   <div class="logo"><img src="../../../assets/images/logo-endpoints.svg" alt="logo" /> </div>
+
+  <div class="menu" (click)="openMenu()" style="color:#ffffff">menu</div>
+  <div *ngIf="this.isData && this.open">
+    <div class="openMenu" *ngFor="let item of this.menu.data" (click)="changeView(item.code)" style="color: #ffffff">{{item.name}}</div>
+  </div>
 </div>

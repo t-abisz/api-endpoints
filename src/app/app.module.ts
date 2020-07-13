@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { EndpointsComponent } from './endpoints/endpoints.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListApiComponent } from './endpoints/list-api/list-api.component';
 import { DialogComponent } from './endpoints/dialog/dialog.component';
-import {VersionDiffService} from  './services/version-diff.service';
+import {VersionDiffService} from './services/version-diff.service';
+import { ImplementationComponent } from './endpoints/implementation/implementation.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {VersionDiffService} from  './services/version-diff.service';
     FooterComponent,
     EndpointsComponent,
     ListApiComponent,
-    DialogComponent
+    DialogComponent,
+    ImplementationComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import {VersionDiffService} from  './services/version-diff.service';
     MatExpansionModule,
     MatDialogModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatMenuModule
   ],
   providers: [VersionDiffService],
   bootstrap: [AppComponent]

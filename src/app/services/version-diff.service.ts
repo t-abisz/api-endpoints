@@ -15,13 +15,20 @@ export class VersionDiffService {
   get url() {
     return this.urlToApi;
   }
-    getJsonDiff(name, version) {
-      return this.http.get<{ versionDiff: VersionDiff }>('http://localhost:8080/api/v1/publish/HAL/'+name+'/'+version)
+    /*getJsonDiff(name, version) {
+      return this.http.get<{ versionDiff: VersionDiff }>('http://localhost:8080/api/v1/publish/HAL/' + name + '/' + version)
         .subscribe( (data) => {
         this.versionDiff = data[0];
         this.versionDiffObs.next(this.versionDiff);
       });
-    }
+    }*/
+  getJsonDiff(name, version) {
+    return this.http.get<{ versionDiff: VersionDiff }>(this.urlToApi + name.toString() + '/' + version.toString() + '.json')
+      .subscribe( (data) => {
+        this.versionDiff = data;
+        this.versionDiffObs.next(this.versionDiff);
+      });
+  }
     getVersionDiffObs() {
       return this.versionDiffObs.asObservable();
     }

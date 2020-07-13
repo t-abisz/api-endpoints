@@ -3,7 +3,7 @@
 </div>
 <mat-accordion *ngIf="jsonData != null">
   <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false" *ngFor="let app of jsonData">
+                       (closed)="panelOpenState = false" *ngFor="let app of jsonData.data">
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span class="material-icons">api</span>
@@ -26,10 +26,11 @@
           <mat-panel-title>
             <span class="versions__color">status: </span> {{version.publicationStatus}}
           </mat-panel-title>
-          <button mat-button *ngIf="version.publicationStatus == 'NEW'" class="dialog__button" (click)="openDialog()">Publish</button>
+          <button mat-button *ngIf="version.publicationStatus == 'NEW'" class="dialog__button" (click)="publish()">Publish</button>
         </mat-expansion-panel-header>
           <!--Operations-->
         <button mat-button class="dialog__button" (click)="openDialog()">check differences</button>
+        <button mat-button class="dialog__button" (click)="openImplementation()">Implementation</button>
           <mat-expansion-panel (opened)="panelOpenState = true"
                                (closed)="panelOpenState = false"
                                *ngFor="let operation of version.operations"

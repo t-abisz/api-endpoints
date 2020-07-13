@@ -4,6 +4,8 @@ import {DialogComponent} from '../dialog/dialog.component';
 import {VersionDiffService} from '../../services/version-diff.service';
 import {MainJson} from '../../model/main-json';
 import {HttpClient} from '@angular/common/http';
+import {MainService} from '../../services/main.service';
+import {ImplementationComponent} from '../implementation/implementation.component';
 
 @Component({
   selector: 'app-list-api',
@@ -13,11 +15,17 @@ import {HttpClient} from '@angular/common/http';
 export class ListApiComponent implements OnInit {
   panelOpenState = false;
   jsonData: any = null;
-  constructor(public dialog: MatDialog, public diffVersion: VersionDiffService, public http: HttpClient) { }
+  constructor(public dialog: MatDialog, public diffVersion: VersionDiffService, public http: HttpClient, public mainService: MainService) { }
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.http.get<{ json: MainJson }>('http://localhost:8080/api/v1/data').subscribe( (data) => {
       this.jsonData = data['data'];
+    });
+  }*/
+  ngOnInit(): void {
+    this.http.get<{ json: MainJson }>(this.diffVersion.url + 'tmp.json').subscribe( (data) => {
+      this.jsonData = data;
+      console.log(data);
     });
   }
   getDiff(name, version) {
@@ -25,6 +33,12 @@ export class ListApiComponent implements OnInit {
   }
   openDialog() {
     this.dialog.open(DialogComponent);
+  }
+  openImplementation() {
+    this.dialog.open(ImplementationComponent);
+  }
+  publish() {
+    this.mainService.httpPostPublish();
   }
 
 }
