@@ -1,3 +1,20 @@
-<div class="implementation">
-  <div class="">{{this.impl.data[0].path}}</div>
-</div>
+<h2 mat-dialog-title>Implementations</h2>
+<mat-dialog-content>
+  <div class="diff">
+    <h3>Main:</h3>
+    <div class="diff__item diff__item--adding">
+      <p>Path: <span>{{this.impl.data[0].path}}</span></p>
+      <p>Method: <span>{{this.impl.data[0].method}}</span></p>
+      <p>Operation Id: <span>{{this.impl.data[0].externalOperationId}}</span></p>
+      <p>Operation Version: <span>{{this.impl.data[0].referenceOperationVersion}}</span></p>
+      <p>System Module: <span>{{this.impl.data[0].implementations[0].systemModule}}</span></p>
+      <div class="diff diff--sub" *ngFor="let item of this.apiKeys | keyvalue">
+        <p>{{item.key}}</p>
+        <p>{{item.key['deployedOnEnvironments']}}</p>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

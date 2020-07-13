@@ -6,7 +6,13 @@ export interface Implementation {
       uid: null,
       externalOperationId: string,
       referenceOperationVersion: string,
-      implementations: []
+      implementations: [
+        {
+          systemModule: string,
+          systemName: string,
+          deploymentStatusOfOperationDTO: {}
+       }
+      ]
     }
   ];
 }

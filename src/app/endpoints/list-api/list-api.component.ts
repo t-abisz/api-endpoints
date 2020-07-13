@@ -17,17 +17,22 @@ export class ListApiComponent implements OnInit {
   jsonData: any = null;
   constructor(public dialog: MatDialog, public diffVersion: VersionDiffService, public http: HttpClient, public mainService: MainService) { }
 
-  /*ngOnInit(): void {
-    this.http.get<{ json: MainJson }>('http://localhost:8080/api/v1/data').subscribe( (data) => {
-      this.jsonData = data['data'];
-    });
-  }*/
   ngOnInit(): void {
+    this.mainService.httpGetList();
+    this.mainService.httpGetListObs().subscribe(data => {
+      this.jsonData = data;
+    });
+   /* this.http.get<{ json: MainJson }>('http://localhost:8080/api/v1/data').subscribe( (data) => {
+      this.jsonData = data;
+      console.log(data['data']);
+    });*/
+  }
+  /*ngOnInit(): void {
     this.http.get<{ json: MainJson }>(this.diffVersion.url + 'tmp.json').subscribe( (data) => {
       this.jsonData = data;
       console.log(data);
     });
-  }
+  }*/
   getDiff(name, version) {
     this.diffVersion.getJsonDiff(name, version);
   }
@@ -38,8 +43,8 @@ export class ListApiComponent implements OnInit {
     // this.implementation.getimplementation();
     this.dialog.open(ImplementationComponent);
   }
-  publish() {
-    this.mainService.httpPostPublish();
+  publish(xsx) {
+    this.mainService.httpPostPublish(xsx);
   }
 
 }

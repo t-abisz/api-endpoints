@@ -16,16 +16,25 @@ export class ImplementationComponent implements OnInit {
         uid: null,
         externalOperationId: '',
         referenceOperationVersion: '',
-        implementations: []
+        implementations: [
+          {
+            systemModule: '',
+            systemName: '',
+            deploymentStatusOfOperationDTO: {}
+          }
+        ]
       }
     ]
 };
+  public apiKeys;
   constructor(private implementation: ImplementationService) { }
 
   ngOnInit(): void {
     this.implementation.getimplementation();
     this.implementation.getimplementationObs().subscribe(data => {
       this.impl = data;
+      console.log(this.impl.data[0].implementations[0].deploymentStatusOfOperationDTO)
+      this.apiKeys = this.impl.data[0].implementations[0].deploymentStatusOfOperationDTO;
     });
   }
 
