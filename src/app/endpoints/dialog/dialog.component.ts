@@ -10,7 +10,6 @@ import {Subscription} from 'rxjs';
 })
 export class DialogComponent implements OnInit, OnDestroy {
   public diff: VersionDiff = {
-    changes: {
       newEndpoints: [{
         externalOperationId: '',
         pathUrl: '',
@@ -37,7 +36,6 @@ export class DialogComponent implements OnInit, OnDestroy {
       }],
       diff: null,
       diffBackwardCompatible: null
-    }
   };
   constructor(public diffVersion: VersionDiffService ) { }
   subscription: Subscription;

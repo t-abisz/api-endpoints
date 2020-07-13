@@ -1,5 +1,4 @@
 {
-  "changes": {
     "newEndpoints": [
       {
         "externalOperationId" : "1",
@@ -45,5 +44,4 @@
     ],
     "diff": true,
     "diffBackwardCompatible": false
-  }
 }

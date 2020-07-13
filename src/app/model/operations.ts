@@ -4,6 +4,7 @@ export interface Operations {
   uid: null;
   requestHeaders: null;
   responseHeaders: null;
+  externalOperationId;
   request: Array<{
     name: string,
     description: string,
