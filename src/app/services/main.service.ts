@@ -30,7 +30,7 @@ export class MainService {
   }
   // main
   httpPostPublish() {
-    this.http.post('http://localhost:8080/api/v1/publish/HAL/Resource_Pool_Management/1.0.0-master', 'Co tu wysyłać?' );
+    this.http.post('http://localhost:8080/api/v1/publish/HAL/Resource_Pool_Management/1.0.0-master', '' );
   }
 }
 

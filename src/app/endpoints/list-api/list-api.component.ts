@@ -35,6 +35,7 @@ export class ListApiComponent implements OnInit {
     this.dialog.open(DialogComponent);
   }
   openImplementation() {
+    // this.implementation.getimplementation();
     this.dialog.open(ImplementationComponent);
   }
   publish() {
