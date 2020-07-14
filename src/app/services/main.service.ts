@@ -11,12 +11,21 @@ import {MainJson} from '../model/main-json';
 export class MainService {
   private menu: any;
   private menuObs = new Subject<Menu>();
+  private menuHandler = false;
+  private menuHandlerObs = new Subject<boolean>();
 
   private listApi: any;
   private listApiObs = new Subject<MainJson>();
 
   constructor(private http: HttpClient) { }
  // menu services
+  getMenuHandler() {
+    return this.menuHandlerObs.asObservable();
+  }
+  setMenuHandler() {
+    this.menuHandler = !this.menuHandler;
+    this.menuHandlerObs.next(this.menuHandler);
+  }
   httpGetMenu() {
     return this.http.get<{ menu: Menu }>('http://localhost:8080/api/v1/project')
       .subscribe( (data) => {
@@ -29,8 +38,6 @@ export class MainService {
   }
   httpPostMenu(projectCode) {
     this.http.post('http://localhost:8080/api/v1/project', projectCode).subscribe((answ) => {
-      this.listApi = answ;
-      this.listApiObs.next(this.listApi);
       console.log(answ);
     });
   }
