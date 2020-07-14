@@ -8,11 +8,12 @@
       <p>Operation Id: <span>{{this.impl.data[0].externalOperationId}}</span></p>
       <p>Operation Version: <span>{{this.impl.data[0].referenceOperationVersion}}</span></p>
       <p>System Module: <span>{{this.impl.data[0].implementations[0].systemModule}}</span></p>
+      <h3>Versions:</h3>
       <div class="diff diff--sub" *ngFor="let item of this.apiKeys | keyvalue">
-        <p>{{item.key}}</p>
-        <p>{{item.value['deployedOnEnvironments']}}</p>
-        <p>{{item.value['operation']['path']}}</p>
-        <p>{{item.value['operation']['method']}}</p>
+        <p>Version: <span>{{item.key}}</span></p>
+        <p>List of environments: <span>{{item.value['deployedOnEnvironments']}}</span></p>
+        <p>Path for this version: <span>{{item.value['operation']['path']}}</span></p>
+        <p>Method for this version: <span>{{item.value['operation']['method']}}</span></p>
       </div>
     </div>
   </div>

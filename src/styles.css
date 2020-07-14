@@ -126,6 +126,7 @@ app-endpoints {
   display: flex;
   justify-content: flex-end;
   margin-top: 24px;
+  color: rgba(33, 33, 33, 0.41);
 }
 .tags p {
   margin: 0;
@@ -145,16 +146,13 @@ code pre {
   box-shadow: none;
 }
 .title {
-  font-weight: 700;
+  font-weight: 300;
   color: #4285f4;
 }
 .mat-typography h2 {
   font-weight: 200;
   font-size: 20px;
 }
-/*.versions__color{
-  color: #4285f4
-}*/
 .versions__color,
 .operations__text {
   font-weight: 500;
@@ -166,7 +164,12 @@ code pre {
 .yellow {
   color: #FBBC05;
 }
-
+.tags--other {
+  font-size: 12px;
+  margin-top: 5px;
+  color: rgba(33, 33, 33, 0.41);
+  margin-right: 10px;
+}
 /*
 dialog
 */
