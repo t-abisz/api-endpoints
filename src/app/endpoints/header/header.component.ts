@@ -38,7 +38,6 @@ export class HeaderComponent implements OnInit {
     ]
   };
   public objectSend;
-  isData = false;
   open = false;
   subscription: Subscription;
   constructor(private mainService: MainService) { }
@@ -47,8 +46,6 @@ export class HeaderComponent implements OnInit {
     this.mainService.httpGetMenu();
     this.subscription = this.mainService.httpGetMenuObs().subscribe((menuItems) => {
       this.menu = menuItems;
-      console.log(this.menu);
-      this.isData = true;
     });
   }
   openMenu() {
