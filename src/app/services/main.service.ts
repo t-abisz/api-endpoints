@@ -22,8 +22,8 @@ export class MainService {
   getMenuHandler() {
     return this.menuHandlerObs.asObservable();
   }
-  setMenuHandler() {
-    this.menuHandler = !this.menuHandler;
+  setMenuHandler(change) {
+    this.menuHandler = change;
     this.menuHandlerObs.next(this.menuHandler);
   }
   httpGetMenu() {

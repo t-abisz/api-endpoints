@@ -13,6 +13,7 @@ import {ImplementationComponent} from '../implementation/implementation.componen
   styleUrls: ['./list-api.component.css']
 })
 export class ListApiComponent implements OnInit {
+  overlayOn: boolean;
   panelOpenState = false;
   jsonData: any = null;
   constructor(public dialog: MatDialog, public diffVersion: VersionDiffService, public http: HttpClient, public mainService: MainService) { }
@@ -22,6 +23,9 @@ export class ListApiComponent implements OnInit {
     this.mainService.httpGetListObs().subscribe(data => {
       this.jsonData = data;
       console.log(this.jsonData);
+    });
+    this.mainService.getMenuHandler().subscribe(item => {
+      this.overlayOn = item;
     });
   }
   getDiff(name, version) {
@@ -40,5 +44,8 @@ export class ListApiComponent implements OnInit {
   publish(igroup, iapi, iversion) {
     this.mainService.httpPostPublish(igroup, iapi, iversion);
   }
-
+  closeMenu() {
+    this.overlayOn = !this.overlayOn;
+    this.mainService.setMenuHandler(this.overlayOn);
+  }
 }

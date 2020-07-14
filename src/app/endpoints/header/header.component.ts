@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit {
     ]
   };
   public objectSend;
-  isOpen = false;
+  isOpen: boolean;
   subscription: Subscription;
   constructor(private mainService: MainService) { }
 
@@ -67,9 +67,13 @@ export class HeaderComponent implements OnInit {
     this.subscription = this.mainService.httpGetMenuObs().subscribe((menuItems) => {
       this.menu = menuItems;
     });
+    this.mainService.getMenuHandler().subscribe(item => {
+      this.isOpen = item;
+    });
   }
   openMenu() {
     this.isOpen = !this.isOpen;
+    this.mainService.setMenuHandler(this.isOpen);
   }
   changeView(itemCode) {
     this.objectSend = {
