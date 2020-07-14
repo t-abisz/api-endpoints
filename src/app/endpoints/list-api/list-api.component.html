@@ -31,7 +31,7 @@
           <button mat-button *ngIf="version.publicationStatus == 'NEW'" class="dialog__button" (click)="publish(app.group, app.name, version.version)">Publish</button>
         </mat-expansion-panel-header>
           <!--Operations-->
-        <button mat-button class="dialog__button" (click)="openDialog(app.name, version.version)">check differences</button>
+        <button mat-button class="dialog__button dialog__button--yellow" (click)="openDialog(app.name, version.version)">check differences</button>
 
           <mat-expansion-panel (opened)="panelOpenState = true"
                                (closed)="panelOpenState = false"
@@ -44,7 +44,7 @@
                 <span class="path">{{operation.path}}</span>
               </mat-panel-title>
               <mat-panel-title>
-               <span class="title">{{operation.externalOperationId}}</span>
+               <span class="title title--other">{{operation.externalOperationId}}</span>
               </mat-panel-title>
               <div class="tags tags--other">
                 <p>Tags: <span *ngFor="let tag of operation.tags">{{tag.name}}, </span></p>
