@@ -2,7 +2,12 @@
   <div class="logo"><img src="../../../assets/images/logo-endpoints.svg" alt="logo" /> </div>
 
   <div class="menu__box">
-    <div class="menu" (click)="openMenu()">menu</div>
+    <div class="menu" (click)="openMenu()">
+      <p>menu</p>
+      <div class="hamburger">
+        <div class="hamburger__dash"></div>
+      </div>
+    </div>
     <div class="menu__open--box"  [@openMenu]="isOpen ? 'open' : 'closed'">
       <div class="menu__item" *ngFor="let item of this.menu.data" (click)="changeView(item.code)">{{item.name}}</div>
     </div>

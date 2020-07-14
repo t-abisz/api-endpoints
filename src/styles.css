@@ -53,11 +53,75 @@ app-endpoints {
   z-index: 99999;
   box-shadow: 1px 3px 12px rgba(33, 33, 33, 0.16);
 }
-.menu {
+.menu p {
   font-family: Sans-Serif;
   font-weight: 900;
   color: #fff;
-  font-size: 16px;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.hamburger {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+.hamburger__dash {
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  transition-timing-function: ease;
+  transition-duration: .15s;
+  transition-property: transform;
+  border-radius: 4px;
+  background-color: #4285f4;
+  top: 50%;
+  display: block;
+  margin-top: -2px;
+}
+.hamburger:before {
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  transition-timing-function: ease;
+  transition-duration: .15s;
+  transition-property: transform;
+  border-radius: 4px;
+  background-color:#34A853;
+  transition: top 75ms ease .12s,opacity 75ms ease;
+  content: '';
+  display: block;
+}
+.hamburger:after {
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  transition-timing-function: ease;
+  transition-duration: .15s;
+  transition-property: transform;
+  border-radius: 4px;
+  background-color: #FBBC05;
+  transition: bottom 75ms ease .12s,transform 75ms cubic-bezier(.55,.055,.675,.19);
+  content: '';
+  display: block;
+  bottom: 0;
+}
+
+.openMenuNoScroll .hamburger:after {
+  bottom: 0;
+  transition: bottom 75ms ease,transform 75ms cubic-bezier(.215,.61,.355,1) .12s;
+  transform: rotate(-45deg) translate(13%, -135%);
+}
+
+.openMenuNoScroll .hamburger:before {
+  top: 0;
+  transition: top 75ms ease,opacity 75ms ease .12s;
+  opacity: 0;
+}
+.openMenuNoScroll .hamburger__dash {
+  transition-delay: .12s;
+  transition-timing-function: cubic-bezier(.215,.61,.355,1);
+  transform: rotate(45deg) translate(2%, 20%);
 }
 .menu__item {
   font-size: 16px;
