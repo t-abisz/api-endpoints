@@ -1,6 +1,7 @@
-<ngx-monaco-editor *ngIf="codeJson != ''"
-                   [options]="editorOptions"
-                   [(ngModel)]="codeJson"
-                   (click)="saveCode(codeJson)"
-></ngx-monaco-editor>
-
+<div class="editorCode">
+  <ngx-monaco-editor [options]="editorOptions"
+                     [(ngModel)]="codeJson"
+  >
+  </ngx-monaco-editor>
+  <button mat-button class="dialog__button dialog__button--full" (click)="saveCode(codeJson)">save</button>
+</div>

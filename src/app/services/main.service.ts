@@ -21,7 +21,7 @@ export class MainService {
   private codeEditorObs = new Subject<any>();
 
   constructor(private http: HttpClient) { }
-  // code obs
+  // code editor
   getEditor() {
     return this.codeEditorObs.asObservable();
   }
@@ -29,13 +29,16 @@ export class MainService {
     this.codeEditor = change;
     this.codeEditorObs.next(this.codeEditor);
   }
-  httpGetEditor() {
-    return this.http.get<string>('../../assets/jsonData/test.yaml', {responseType: 'text'})
+  httpGetEditor(name, version) {
+    // @ts-ignore
+    return this.http.get<string>('http://localhost:8080/api/v1/publish/HAL/' + name + '/' + version, {responseType: 'text'})
       .subscribe( (data) => {
         this.codeEditor = data;
-        console.log(this.codeEditor);
         this.codeEditorObs.next(this.codeEditor);
       });
+  }
+  httpPostCode(projectCode) {
+    return this.http.post('http://localhost:8080/api/v1/project', projectCode);
   }
  // menu services
   getMenuHandler() {
@@ -88,11 +91,4 @@ export class MainService {
     this.listApiObs.next(this.listApi);
   }
 }
-/*get(url: string,
-  options: {
-  headers?: HttpHeaders ;
-  observe?: HttpObserve;
-  params?: HttpParams ;
-  reportProgress?: boolean;
-  responseType?: "arraybuffer" | ... 2 more ... | "json"; withCredentials?: boolean; } = {}): Observable<any>*/
 

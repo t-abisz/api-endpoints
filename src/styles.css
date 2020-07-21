@@ -296,6 +296,9 @@ dialog
 .dialog__button--yellow {
   color: #FBBC05;
 }
+.dialog__button--green {
+  color: #34A853;
+}
 .dialog__button:hover,
 .mat-dialog-actions button:hover {
   background-color: rgba(0, 0, 0, 0.04);
@@ -327,4 +330,8 @@ ngx-monaco-editor {
   height: calc(100% - 100px);
   width: 100%;
   padding: 15px;
+}
+.dialog__button--full {
+  background-color: #34A853;
+  color: #ffffff;
 }
