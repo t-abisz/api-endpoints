@@ -15,9 +15,9 @@ export class EditorComponent implements OnInit, OnDestroy {
   constructor(public mainService: MainService, @Inject(MAT_DIALOG_DATA) public data: any) { }
   subscription: Subscription;
   ngOnInit(): void {
-    this.mainService.httpGetEditor(this.data.appName, this.data.appVersion);
+    this.mainService.httpGetEditor(this.data.uid);
     this.subscription = this.mainService.getEditor().subscribe(data => {
-      this.codeJson = data;
+      this.codeJson = JSON.parse(data).content;
     });
   }
   saveCode(code) {
