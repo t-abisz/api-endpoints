@@ -32,7 +32,7 @@ export class ListApiComponent implements OnInit {
     this.mainService.getMenuHandler().subscribe(item => {
       this.overlayOn = item;
     });
-    this.mainService.httpGetEditor();
+    // this.mainService.httpGetEditor();
   }
 
   getDiff(name, version) {
@@ -43,9 +43,9 @@ export class ListApiComponent implements OnInit {
       data: { appName: name, appVersion: version },
     });
   }
-  openEditor(name, version, lang) {
+  openEditor(uid, lang) {
     this.dialog.open(EditorComponent, {
-      data: { appName: name, appVersion: version, codeLang: lang },
+      data: { uid: uid, codeLang: lang },
     });
   }
   openImplementation(uid) {
