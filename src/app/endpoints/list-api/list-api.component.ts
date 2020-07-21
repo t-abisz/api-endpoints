@@ -43,9 +43,9 @@ export class ListApiComponent implements OnInit {
       data: { appName: name, appVersion: version },
     });
   }
-  openEditor(name, version) {
+  openEditor(name, version, lang) {
     this.dialog.open(EditorComponent, {
-      data: { appName: name, appVersion: version },
+      data: { appName: name, appVersion: version, codeLang: lang },
     });
   }
   openImplementation(uid) {

@@ -34,7 +34,7 @@
           <!--Operations-->
         <button mat-button class="dialog__button dialog__button--yellow" (click)="openDialog(app.name, version.version)">check differences</button>
         <!--edytor-->
-        <button mat-button class="dialog__button dialog__button--yellow" (click)="openEditor(app.name, version.version)">edit</button>
+        <button mat-button class="dialog__button dialog__button--yellow" (click)="openEditor(app.name, version.version, 'yaml')">edit</button>
           <mat-expansion-panel (opened)="panelOpenState = true"
                                (closed)="panelOpenState = false"
                                *ngFor="let operation of version.operations"

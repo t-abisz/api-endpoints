@@ -9,27 +9,19 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class EditorComponent implements OnInit {
   codeJson = '';
-
-  editorOptions = {theme: 'vs', language: 'json'};
+  editorOptions = {theme: 'vs', language: this.data.codeLang};
 
   constructor(public mainService: MainService, @Inject(MAT_DIALOG_DATA) public data: any) { }
   ngOnInit(): void {
     this.mainService.httpGetEditor();
     this.mainService.getEditor().subscribe(data => {
-      const csr = JSON.stringify(data, undefined, 4);
-      this.codeJson = csr;
-
+      /*const dataToString = JSON.stringify(data, undefined, 4);
+      this.codeJson = dataToString;*/
+      this.codeJson = data;
     });
   }
-  test(code) {
+  saveCode(code) {
     console.log(code);
-  }
-  edit() {
-    this.mainService.httpGetEditor();
-    this.mainService.getEditor().subscribe(data => {
-      const csr = JSON.stringify(data, undefined, 4);
-      this.codeJson = csr;
-
-    });
+    this.mainService.setEditorHandler(code);
   }
 }

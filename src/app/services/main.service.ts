@@ -30,9 +30,10 @@ export class MainService {
     this.codeEditorObs.next(this.codeEditor);
   }
   httpGetEditor() {
-    return this.http.get<string>('http://localhost:8080/api/v1/project')
+    return this.http.get<string>('../../assets/jsonData/test.yaml', {responseType: 'text'})
       .subscribe( (data) => {
         this.codeEditor = data;
+        console.log(this.codeEditor);
         this.codeEditorObs.next(this.codeEditor);
       });
   }
@@ -87,4 +88,11 @@ export class MainService {
     this.listApiObs.next(this.listApi);
   }
 }
+/*get(url: string,
+  options: {
+  headers?: HttpHeaders ;
+  observe?: HttpObserve;
+  params?: HttpParams ;
+  reportProgress?: boolean;
+  responseType?: "arraybuffer" | ... 2 more ... | "json"; withCredentials?: boolean; } = {}): Observable<any>*/
 
