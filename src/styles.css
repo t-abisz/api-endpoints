@@ -323,3 +323,8 @@ dialog
 .title--other {
   color: #34A853;
 }
+ngx-monaco-editor {
+  height: calc(100% - 100px);
+  width: 100%;
+  padding: 15px;
+}

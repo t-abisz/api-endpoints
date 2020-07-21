@@ -17,7 +17,25 @@ export class MainService {
   private listApi: any;
   private listApiObs = new Subject<MainJson>();
 
+  private codeEditor: string;
+  private codeEditorObs = new Subject<any>();
+
   constructor(private http: HttpClient) { }
+  // code obs
+  getEditor() {
+    return this.codeEditorObs.asObservable();
+  }
+  setEditorHandler(change) {
+    this.codeEditor = change;
+    this.codeEditorObs.next(this.codeEditor);
+  }
+  httpGetEditor() {
+    return this.http.get<string>('http://localhost:8080/api/v1/project')
+      .subscribe( (data) => {
+        this.codeEditor = data;
+        this.codeEditorObs.next(this.codeEditor);
+      });
+  }
  // menu services
   getMenuHandler() {
     return this.menuHandlerObs.asObservable();
@@ -57,6 +75,12 @@ export class MainService {
     this.http.post('http://localhost:8080/api/v1/publish/' + group + '/' + api + '/' + version, {}).subscribe((answ) => {
       console.log(answ);
     });
+  }
+  httpGetCode() {
+    return this.http.get<{ listApi: MainJson }>('../../assets/jsonData/impl.json')
+      .subscribe( (data) => {
+        console.log(data);
+      });
   }
   setList(newList) {
     this.listApi = newList;

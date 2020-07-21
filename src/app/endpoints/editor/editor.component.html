@@ -1,0 +1,6 @@
+<ngx-monaco-editor *ngIf="codeJson != ''"
+                   [options]="editorOptions"
+                   [(ngModel)]="codeJson"
+                   (click)="test(codeJson)"
+></ngx-monaco-editor>
+
