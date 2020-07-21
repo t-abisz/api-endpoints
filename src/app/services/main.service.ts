@@ -30,9 +30,9 @@ export class MainService {
     this.codeEditor = change;
     this.codeEditorObs.next(this.codeEditor);
   }
-  httpGetEditor(name, version) {
+  httpGetEditor(uid) {
     // @ts-ignore
-    return this.http.get<string>(environment.apiUrl +'/api/v1/publish/HAL/' + name + '/' + version, {responseType: 'text'})
+    return this.http.get<string>(environment.apiUrl +'/api/v1/data/edit/' + uid , {responseType: 'text'})
       .subscribe( (data) => {
         this.codeEditor = data;
         this.codeEditorObs.next(this.codeEditor);
@@ -41,7 +41,7 @@ export class MainService {
   httpPostCode(projectCode) {
     return this.http.post(environment.apiUrl +'/api/v1/project', projectCode);
   }
- // menu services
+  // menu services
   getMenuHandler() {
     return this.menuHandlerObs.asObservable();
   }
@@ -50,7 +50,7 @@ export class MainService {
     this.menuHandlerObs.next(this.menuHandler);
   }
   httpGetMenu() {
-    return this.http.get<{ menu: Menu }>('environment.apiUrl +'/api/v1/project')
+    return this.http.get<{ menu: Menu }>(environment.apiUrl +'/api/v1/project')
       .subscribe( (data) => {
         this.menu = data;
         this.menuObs.next(this.menu);
@@ -92,4 +92,3 @@ export class MainService {
     this.listApiObs.next(this.listApi);
   }
 }
-
