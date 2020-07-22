@@ -17,7 +17,6 @@ import { ListApiComponent } from './endpoints/list-api/list-api.component';
 import { DialogComponent } from './endpoints/dialog/dialog.component';
 import {VersionDiffService} from './services/version-diff.service';
 import { ImplementationComponent } from './endpoints/implementation/implementation.component';
-import { MonacoEditorLoaderModule, MonacoEditorLoaderService } from '@abc.xyz/angular-monaco-editor-loader';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import {FormsModule} from '@angular/forms';
 import { EditorComponent } from './endpoints/editor/editor.component';
@@ -42,7 +41,6 @@ import { EditorComponent } from './endpoints/editor/editor.component';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatMenuModule,
-    MonacoEditorLoaderModule,
     MonacoEditorModule.forRoot(),
     FormsModule
   ],
