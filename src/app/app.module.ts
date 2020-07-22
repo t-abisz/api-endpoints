@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, DoBootstrap, ApplicationRef, APP_INITIALIZER} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -20,6 +20,8 @@ import { ImplementationComponent } from './endpoints/implementation/implementati
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import {FormsModule} from '@angular/forms';
 import { EditorComponent } from './endpoints/editor/editor.component';
+import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
+import {initializer} from './services/initializer';
 
 @NgModule({
   declarations: [
@@ -42,9 +44,16 @@ import { EditorComponent } from './endpoints/editor/editor.component';
     MatProgressSpinnerModule,
     MatMenuModule,
     MonacoEditorModule.forRoot(),
-    FormsModule
+    FormsModule,
+    KeycloakAngularModule
   ],
-  providers: [VersionDiffService],
+  providers: [VersionDiffService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializer,
+      multi: true,
+      deps: [KeycloakService]
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
