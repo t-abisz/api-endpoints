@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Menu} from '../model/menu';
 import {Subject} from 'rxjs';
 import {MainJson} from '../model/main-json';
+import {environment} from "../../environments/environment";
 
 
 @Injectable({
@@ -29,18 +30,18 @@ export class MainService {
     this.codeEditor = change;
     this.codeEditorObs.next(this.codeEditor);
   }
-  httpGetEditor(name, version) {
+  httpGetEditor(uid) {
     // @ts-ignore
-    return this.http.get<string>('http://localhost:8080/api/v1/publish/HAL/' + name + '/' + version, {responseType: 'text'})
+    return this.http.get<string>(environment.apiUrl +'/api/v1/data/edit/' + uid , {responseType: 'text'})
       .subscribe( (data) => {
         this.codeEditor = data;
         this.codeEditorObs.next(this.codeEditor);
       });
   }
   httpPostCode(projectCode) {
-    return this.http.post('http://localhost:8080/api/v1/project', projectCode);
+    return this.http.post(environment.apiUrl +'/api/v1/project', projectCode);
   }
- // menu services
+  // menu services
   getMenuHandler() {
     return this.menuHandlerObs.asObservable();
   }
@@ -49,7 +50,7 @@ export class MainService {
     this.menuHandlerObs.next(this.menuHandler);
   }
   httpGetMenu() {
-    return this.http.get<{ menu: Menu }>('http://localhost:8080/api/v1/project')
+    return this.http.get<{ menu: Menu }>(environment.apiUrl +'/api/v1/project')
       .subscribe( (data) => {
         this.menu = data;
         this.menuObs.next(this.menu);
@@ -59,14 +60,14 @@ export class MainService {
     return this.menuObs.asObservable();
   }
   httpPostMenu(projectCode) {
-    this.http.post('http://localhost:8080/api/v1/project', projectCode).subscribe((answ) => {
+    this.http.post(environment.apiUrl +'/api/v1/project', projectCode).subscribe((answ) => {
       console.log(answ);
     });
   }
 
   // main
   httpGetList() {
-    return this.http.get<{ listApi: MainJson }>('http://localhost:8080/api/v1/data')
+    return this.http.get<{ listApi: MainJson }>(environment.apiUrl +'/api/v1/data')
       .subscribe( (data) => {
         this.listApi = data;
         this.listApiObs.next(this.listApi);
@@ -76,7 +77,7 @@ export class MainService {
     return this.listApiObs.asObservable();
   }
   httpPostPublish(group, api, version) {
-    this.http.post('http://localhost:8080/api/v1/publish/' + group + '/' + api + '/' + version, {}).subscribe((answ) => {
+    this.http.post(environment.apiUrl +'/api/v1/publish/' + group + '/' + api + '/' + version, {}).subscribe((answ) => {
       console.log(answ);
     });
   }
@@ -91,4 +92,3 @@ export class MainService {
     this.listApiObs.next(this.listApi);
   }
 }
-
